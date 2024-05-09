@@ -5,3 +5,9 @@ Console.WriteLine("Hello, World!");
 TXTImportar txt = new();
 
 txt.readtxt();
+using Core.Txt;
+
+Console.WriteLine("Hello, World!");
+
+
+await TxtExporter.ExportAsync();
