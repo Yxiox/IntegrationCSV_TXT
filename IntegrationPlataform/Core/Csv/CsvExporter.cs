@@ -56,7 +56,7 @@ namespace Core.Csv
                                 int tamanhoMaximoTipoMidia = 50; 
                                 tipoMidia = tipoMidia.PadRight(tamanhoMaximoTipoMidia);
                                 
-                                int tamanhoMaximoClassificacao= 50; 
+                                int tamanhoMaximoClassificacao= 6; 
                                 tipoMidia = tipoMidia.PadRight(tamanhoMaximoClassificacao);
                                 
                                 int tamanhoMaximoParticipante = 100; 
