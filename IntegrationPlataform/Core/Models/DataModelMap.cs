@@ -1,11 +1,11 @@
 ﻿using Core.Data;
 using CsvHelper.Configuration;
 
-namespace Core.Csv
+namespace Core.Models
 {
-    public class CsvMap : ClassMap<datamodel>
+    public class DataModelMap : ClassMap<DataModel>
     {
-        public CsvMap()
+        public DataModelMap()
         {
             Map(m => m.GENERO).Name("GENERO");
             Map(m => m.CATEGORIA).Name("CATEGORIA");
