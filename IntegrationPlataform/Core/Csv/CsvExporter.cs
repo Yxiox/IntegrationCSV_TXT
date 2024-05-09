@@ -1,6 +1,7 @@
 ﻿using Core.Data;
 using Core.Model;
-using MySql.Data.MySqlClient; // Certifique-se de adicionar a referência ao assembly MySql.Data
+using Microsoft.VisualBasic.FileIO; // Importe o namespace necessário
+using MySql.Data.MySqlClient;
 using System;
 using System.Collections.Generic;
 using System.IO;
@@ -10,13 +11,6 @@ namespace Core.Csv
 {
     public class CsvExporter
     {
-        private readonly string connectionString; // Configuração de conexão com o banco de dados
-
-        public CsvExporter(string connectionString)
-        {
-            this.connectionString = connectionString;
-        }
-
         public void ExportToCsv(string filePath)
         {
             try
@@ -37,6 +31,7 @@ namespace Core.Csv
                         {
                             while (reader.Read())
                             {
+                                int id = Convert.ToInt32(reader["id"]);
                                 string genero = reader["genero"].ToString();
                                 string categoria = reader["categoria"].ToString();
                                 string midia = reader["midia"].ToString();
@@ -44,26 +39,9 @@ namespace Core.Csv
                                 int classificacao = Convert.ToInt32(reader["classificacao"]);
                                 string participante = reader["participante"].ToString();
 
-                                int tamanhoMaximoGenero = 20; 
-                                genero = genero.PadRight(tamanhoMaximoGenero);
-
-                                int tamanhoMaximoCategoria = 50; 
-                                categoria = categoria.PadRight(tamanhoMaximoCategoria);
-
-                                int tamanhoMaximoMidia = 50; 
-                                midia = midia.PadRight(tamanhoMaximoMidia);
-
-                                int tamanhoMaximoTipoMidia = 50; 
-                                tipoMidia = tipoMidia.PadRight(tamanhoMaximoTipoMidia);
-                                
-                                int tamanhoMaximoClassificacao= 6; 
-                                tipoMidia = tipoMidia.PadRight(tamanhoMaximoClassificacao);
-                                
-                                int tamanhoMaximoParticipante = 100; 
-                                tipoMidia = tipoMidia.PadRight(tamanhoMaximoParticipante);
-
                                 monolitoItens.Add(new MonolitoItem
                                 {
+                                    Id = id,
                                     Genero = genero,
                                     Categoria = categoria,
                                     Midia = midia,
@@ -76,15 +54,13 @@ namespace Core.Csv
                     }
                 }
 
-
-
                 // Criando o conteúdo do CSV
                 var csvBuilder = new StringBuilder();
-                csvBuilder.AppendLine("Genero,Categoria,Midia,TipoMidia,Classificacao,Participante"); // Cabeçalho
+                csvBuilder.AppendLine("Id,Genero,Categoria,Midia,TipoMidia,Classificacao,Participante"); // Cabeçalho
 
                 foreach (var item in monolitoItens)
                 {
-                    var linhaCsv = $"{item.Genero},{item.Categoria},{item.Midia},{item.TipoMidia},{item.Classificacao},{item.Participante}";
+                    var linhaCsv = $"{item.Id},{item.Genero},{item.Categoria},{item.Midia},{item.TipoMidia},{item.Classificacao},{item.Participante}";
                     csvBuilder.AppendLine(linhaCsv);
                 }
 
@@ -100,4 +76,3 @@ namespace Core.Csv
         }
     }
 }
-

@@ -1,13 +1,12 @@
 ﻿// See https://aka.ms/new-console-template for more information
 using Core.Csv;
-using Core.Data;
 using Core.Txt;
-using System.Data;
-
-var csvExporter = new CsvExporter(Repository.CONNECTION_STRING_V);
-string caminhoArquivo = @"C:\\Users\\valdi\\Downloads\dadosbancoCsv.csv";
-csvExporter.ExportToCsv(caminhoArquivo);
-
-
+using Core.Shared;
 
 await TxtExporter.ExportAsync();
+
+CsvExporter csvExporter = new CsvExporter();
+
+string caminhoArquivo = @$"C:\Users\valdi\Downloads/{Exporter.FILENAME_CSV}";
+csvExporter.ExportToCsv(caminhoArquivo);
+
