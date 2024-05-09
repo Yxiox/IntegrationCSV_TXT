@@ -1,13 +1,22 @@
-﻿// See https://aka.ms/new-console-template for more information
-using Core;
-
-Console.WriteLine("Hello, World!");
-TXTImportar txt = new();
-
-txt.readtxt();
+﻿using Core.Menus;
 using Core.Txt;
+using QuickKit.Cmd;
+using QuickKit.Cmd.Enums;
 
-Console.WriteLine("Hello, World!");
+var opcao = MainMenu.Mostrar();
 
-
-await TxtExporter.ExportAsync();
+switch (opcao)
+{
+    case 1:
+        await TxtExporter.ExportAsync();
+        break;
+    case 2:
+        break;
+    case 3:
+        break;
+    case 4:
+        break;
+    default:
+        Consoler.WriteLine("Opção inválida", AlertType.Warning);
+        break;
+}
