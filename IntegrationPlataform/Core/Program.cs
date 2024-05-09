@@ -1,4 +1,5 @@
-﻿using Core.Menus;
+﻿using Core;
+using Core.Menus;
 using Core.Txt;
 using QuickKit.Cmd;
 using QuickKit.Cmd.Enums;
@@ -11,6 +12,7 @@ switch (opcao)
         await TxtExporter.ExportAsync();
         break;
     case 2:
+        await TXTImportar.Readtxt();
         break;
     case 3:
         break;
