@@ -12,3 +12,9 @@ internal class Program
         csvExporter.ExportToCsv(caminhoArquivo);
     }
 }
+using Core.Txt;
+
+Console.WriteLine("Hello, World!");
+
+
+await TxtExporter.ExportAsync();
