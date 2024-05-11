@@ -6,5 +6,5 @@ internal abstract class Exporter
 {
     protected readonly static StringBuilder _sb = new();
     protected const string FILENAME_TXT = "ImporterTxt.txt";
-    protected const string FILENAME_CSV = "ImporterCsv.csv";
+    public const string FILENAME_CSV = "ImporterCsv.csv";
 }

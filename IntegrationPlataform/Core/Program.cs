@@ -1,4 +1,5 @@
-﻿using Core.Menus;
+﻿using Core.Csv;
+using Core.Menus;
 using Core.Txt;
 using QuickKit.Cmd;
 using QuickKit.Cmd.Enums;
@@ -13,6 +14,7 @@ switch (opcao)
     case 2:
         break;
     case 3:
+        CsvExporter.ExportToCsv();
         break;
     case 4:
         break;
