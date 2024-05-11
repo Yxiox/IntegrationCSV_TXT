@@ -1,12 +1,24 @@
-﻿// See https://aka.ms/new-console-template for more information
-using Core.Csv;
+﻿using Core.Csv;
+using Core.Menus;
 using Core.Txt;
-using Core.Shared;
+using QuickKit.Cmd;
+using QuickKit.Cmd.Enums;
 
-await TxtExporter.ExportAsync();
+var opcao = MainMenu.Mostrar();
 
-CsvExporter csvExporter = new CsvExporter();
-
-string caminhoArquivo = @$"C:\Users\valdi\Downloads/{Exporter.FILENAME_CSV}";
-csvExporter.ExportToCsv(caminhoArquivo);
-
+switch (opcao)
+{
+    case 1:
+        await TxtExporter.ExportAsync();
+        break;
+    case 2:
+        break;
+    case 3:
+        CsvExporter.ExportToCsv();
+        break;
+    case 4:
+        break;
+    default:
+        Consoler.WriteLine("Opção inválida", AlertType.Warning);
+        break;
+}
