@@ -1,18 +1,16 @@
 ﻿using Core.Data;
 using Core.Model;
-using Microsoft.VisualBasic.FileIO; // Importe o namespace necessário
+using Core.Shared;
 using MySql.Data.MySqlClient;
-using System;
-using System.Collections.Generic;
-using System.IO;
 using System.Text;
 
 namespace Core.Csv
 {
     public class CsvExporter
     {
-        public void ExportToCsv(string filePath)
+        public static void ExportToCsv()
         {
+            string filePath = @$"{Path.GetTempPath()}/{Exporter.FILENAME_CSV}";
             try
             {
                 // Consulta SQL para recuperar todos os registros da tabela "monolito"
