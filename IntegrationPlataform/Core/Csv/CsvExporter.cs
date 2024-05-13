@@ -10,7 +10,7 @@ namespace Core.Csv
     {
         public static void ExportToCsv()
         {
-            string filePath = @$"{Path.GetTempPath()}/{Exporter.FILENAME_CSV}";
+            string filePath = @$"{FilePath.PATH}/{Exporter.FILENAME_CSV}";
             try
             {
                 // Consulta SQL para recuperar todos os registros da tabela "monolito"

@@ -1,7 +1,6 @@
 ﻿using Core.Data;
 using Core.Extensions;
 using Core.Shared;
-using System.Text;
 
 namespace Core.Txt;
 
@@ -22,8 +21,10 @@ internal class TxtExporter : Exporter
             _sb.AppendLine();
         }
 
-        var path = $"{Path.GetTempPath()}/{FILENAME_TXT}";
+        var path = $"{FilePath.PATH}/{FILENAME_TXT}";
 
+        Directory.CreateDirectory(FilePath.PATH);
+        
         await File.Create(path).DisposeAsync();
         using (var sw = new StreamWriter(path))
         {

@@ -5,7 +5,7 @@ namespace Core;
 
 public class TXTImportar
 {
-    static string Dados = File.ReadAllText("C:\\Users\\Gabriel.T\\Desktop\\testeTXT.txt");
+    static string Dados = File.ReadAllText(@$"{FilePath.PATH}\\testeTXT.txt");
 
     static string Genero;
     static string Categoria;
