@@ -4,7 +4,7 @@ namespace Core.Extensions;
 
 internal static class StringHelper
 {
-    public static string AddSpaces(int length, int max, string value, StringBuilder sb, bool clear = true )
+    public static string AddSpaces(int length, int max, string value, StringBuilder sb, bool clear = true)
     {
         if (length < max)
         {
@@ -22,5 +22,4 @@ internal static class StringHelper
 
         return sb.ToString();
     }
-
 }

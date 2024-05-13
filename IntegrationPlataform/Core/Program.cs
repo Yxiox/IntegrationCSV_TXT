@@ -12,6 +12,7 @@ switch (opcao)
         await TxtExporter.ExportAsync();
         break;
     case 2:
+        await TXTImportar.Readtxt();
         break;
     case 3:
         CsvExporter.ExportToCsv();
