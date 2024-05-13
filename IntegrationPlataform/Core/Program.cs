@@ -1,4 +1,4 @@
-﻿using Core;
+﻿using Core.Csv;
 using Core.Menus;
 using Core.Txt;
 using QuickKit.Cmd;
@@ -15,6 +15,7 @@ switch (opcao)
         await TXTImportar.Readtxt();
         break;
     case 3:
+        CsvExporter.ExportToCsv();
         break;
     case 4:
         break;
