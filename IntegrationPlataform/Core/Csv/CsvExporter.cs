@@ -13,13 +13,14 @@ namespace Core.Csv
             string filePath = @$"{FilePath.PATH}/{Exporter.FILENAME_CSV}";
             try
             {
+                Directory.CreateDirectory(FilePath.PATH);
                 // Consulta SQL para recuperar todos os registros da tabela "monolito"
                 string query = "SELECT * FROM monolito";
 
                 // Lista para armazenar os registros
                 List<MonolitoItem> monolitoItens = new List<MonolitoItem>();
 
-                using (MySqlConnection connection = new MySqlConnection(Repository.CONNECTION_STRING_V))
+                using (MySqlConnection connection = new MySqlConnection(Repository.CONNECTION_STRING))
                 {
                     connection.Open();
 

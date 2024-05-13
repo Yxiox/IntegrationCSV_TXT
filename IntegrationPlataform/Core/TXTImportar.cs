@@ -16,28 +16,30 @@ public class TXTImportar
 
     public static async Task Readtxt()
     {
+        Directory.CreateDirectory(FilePath.PATH);
+
         for (int i = 0; i < 20; i++)
         {
             Genero += Dados[i];
         }
 
-        for (int i = 21; i <= 70; i++)
+        for (int i = 20; i < 70; i++)
             Categoria += Dados[i];
         {
         }
-        for (int i = 71; i <= 120; i++)
+        for (int i = 70; i < 120; i++)
         {
             Midia += Dados[i];
         }
-        for (int i = 121; i <= 170; i++)
+        for (int i = 120; i < 170; i++)
         {
             TipoMidia += Dados[i];
         }
-        for (int i = 171; i < 174; i++)
+        for (int i = 170; i < 173; i++)
         {
             Classificacao += Dados[i];
         }
-        for (int i = 174; i <= 273; i++)
+        for (int i = 173; i < 273; i++)
         {
             Participante += Dados[i];
         }
