@@ -1,16 +1,48 @@
-﻿using Dapper;
-using QuickKit.Cmd.Enums;
-using QuickKit.Cmd;
+﻿using System.Data;
+using Core.Model;
 using Core.Models;
+using Dapper;
+using QuickKit.Cmd;
+using QuickKit.Cmd.Enums;
 
 namespace Core.Data;
 
-internal class CsvRepository : Repository
+public class CsvRepository : Repository
 {
-    public async void CsvAdd(string gENERO, string cATEGORIA, string mIDIA, string tIPO_MIDIA, int cLASSIFICACAO, string pARTICIPANTE)
+    public static async Task InserirAsync(DataModel model)
     {
-        string query = $"INSERT INTO legado (genero, categoria,  midia, tipo_midia, classificacao, participante) VALUES ({gENERO},{cATEGORIA},{mIDIA},{tIPO_MIDIA},{cLASSIFICACAO},{pARTICIPANTE})";
+        try
+        {
+            var sql =
+                @"INSERT INTO monolito(genero, categoria, midia, tipo_midia, classificacao, participante)
+            VALUES (@prm_genero, @prm_categoria, @prm_midia, @prm_tipo_midia, @prm_classificacao, @prm_participante)";
 
+            var command = new CommandDefinition(
+                sql,
+                new
+                {
+                    @prm_genero = model.GENERO,
+                    @prm_categoria = model.CATEGORIA,
+                    @prm_midia = model.MIDIA,
+                    @prm_tipo_midia = model.TIPO_MIDIA,
+                    @prm_classificacao = model.CLASSIFICACAO,
+                    @prm_participante = model.PARTICIPANTE
+                },
+                commandType: CommandType.Text
+            );
+
+            using (IDbConnection conn = Connect())
+            {
+                await conn.ExecuteAsync(command);
+            }
+        }
+        catch (Exception ex)
+        {
+            Consoler.WriteLine(
+                $"um erro ocorreu ao importar os dados. Error: {ex.Message}",
+                AlertType.Error
+            );
+            throw;
+        }
     }
-
 }

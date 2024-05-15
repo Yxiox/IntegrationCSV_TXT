@@ -1,10 +1,4 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
-
-namespace Core.Model
+﻿namespace Core.Model
 {
     public class MonolitoItem
     {
@@ -15,6 +9,5 @@ namespace Core.Model
         public string TipoMidia { get; set; }
         public int Classificacao { get; set; }
         public string Participante { get; set; }
-
     }
 }

@@ -1,8 +1,8 @@
-﻿using Core.Data;
+﻿using System.Text;
+using Core.Data;
 using Core.Model;
 using Core.Shared;
 using MySql.Data.MySqlClient;
-using System.Text;
 
 namespace Core.Csv
 {
@@ -19,7 +19,9 @@ namespace Core.Csv
                 // Lista para armazenar os registros
                 List<MonolitoItem> monolitoItens = new List<MonolitoItem>();
 
-                using (MySqlConnection connection = new MySqlConnection(Repository.CONNECTION_STRING_V))
+                using (
+                    MySqlConnection connection = new MySqlConnection(Repository.CONNECTION_STRING_V)
+                )
                 {
                     connection.Open();
 
@@ -37,16 +39,18 @@ namespace Core.Csv
                                 int classificacao = Convert.ToInt32(reader["classificacao"]);
                                 string participante = reader["participante"].ToString();
 
-                                monolitoItens.Add(new MonolitoItem
-                                {
-                                    Id = id,
-                                    Genero = genero,
-                                    Categoria = categoria,
-                                    Midia = midia,
-                                    TipoMidia = tipoMidia,
-                                    Classificacao = classificacao,
-                                    Participante = participante
-                                });
+                                monolitoItens.Add(
+                                    new MonolitoItem
+                                    {
+                                        Id = id,
+                                        Genero = genero,
+                                        Categoria = categoria,
+                                        Midia = midia,
+                                        TipoMidia = tipoMidia,
+                                        Classificacao = classificacao,
+                                        Participante = participante
+                                    }
+                                );
                             }
                         }
                     }
@@ -54,11 +58,14 @@ namespace Core.Csv
 
                 // Criando o conteúdo do CSV
                 var csvBuilder = new StringBuilder();
-                csvBuilder.AppendLine("Id,Genero,Categoria,Midia,TipoMidia,Classificacao,Participante"); // Cabeçalho
+                csvBuilder.AppendLine(
+                    "Id,Genero,Categoria,Midia,TipoMidia,Classificacao,Participante"
+                ); // Cabeçalho
 
                 foreach (var item in monolitoItens)
                 {
-                    var linhaCsv = $"{item.Id},{item.Genero},{item.Categoria},{item.Midia},{item.TipoMidia},{item.Classificacao},{item.Participante}";
+                    var linhaCsv =
+                        $"{item.Id},{item.Genero},{item.Categoria},{item.Midia},{item.TipoMidia},{item.Classificacao},{item.Participante}";
                     csvBuilder.AppendLine(linhaCsv);
                 }
 

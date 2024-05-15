@@ -1,29 +1,35 @@
-﻿using CsvHelper.Configuration;
-using static Org.BouncyCastle.Math.EC.ECCurve;
-using System.Globalization;
-using CsvHelper;
-using Core.Data;
+﻿using Core.Data;
 using Core.Models;
+using Microsoft.VisualBasic.FileIO;
 
 namespace Core.Csv;
 
 public class CsvImporter
 {
-    public void Import()
+    public static async Task Import()
     {
-        var config = new CsvConfiguration(CultureInfo.CurrentCulture)
+        using (TextFieldParser parser = new TextFieldParser($@"{FilePath.PATH}/testeCSV.csv"))
         {
-            HasHeaderRecord = true,
-            HeaderValidated = null
-        };
+            parser.TextFieldType = FieldType.Delimited;
+            parser.SetDelimiters(",");
+            Console.WriteLine($"\n-----HEADERS-----\n" + $"{parser.ReadLine()}");
 
-        using (var reader = new StreamReader(@"C:\Users\mateus.oliveira7\Downloads\testeTXT2.csv"))
-        using (var csv = new CsvReader(reader, config))
-        {
-            var midias = csv.GetRecords<DataModel>();
-            foreach (var midia in midias)
+            while (!parser.EndOfData)
             {
-                
+                string[] fields = parser.ReadFields();
+                DataModel model =
+                    new(fields[0], fields[1], fields[2], fields[3], fields[4], fields[5]);
+                try
+                {
+                    await CsvRepository.InserirAsync(model);
+                }
+                catch (Exception)
+                {
+                    await Console.Out.WriteLineAsync(
+                        "Erro ao inserir, favor conferir arquivo de importação!"
+                    );
+                    throw;
+                }
             }
         }
     }
