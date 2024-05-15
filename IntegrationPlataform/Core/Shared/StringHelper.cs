@@ -1,6 +1,6 @@
 ﻿using System.Text;
 
-namespace Core.Extensions;
+namespace Core.Shared;
 
 internal static class StringHelper
 {
