@@ -1,9 +1,8 @@
-﻿using System.Data;
-using Core.Model;
-using Core.Models;
+﻿using Core.Models;
 using Dapper;
 using QuickKit.Cmd;
 using QuickKit.Cmd.Enums;
+using System.Data;
 
 namespace Core.Data;
 
