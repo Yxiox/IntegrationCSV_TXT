@@ -1,10 +1,8 @@
-﻿using Dapper;
-using QuickKit.Cmd.Enums;
+﻿using Core.Models;
+using Dapper;
 using QuickKit.Cmd;
-using Core.Models;
+using QuickKit.Cmd.Enums;
 
 namespace Core.Data;
 
-internal class CsvRepository : Repository
-{
-}
+internal class CsvRepository : Repository { }

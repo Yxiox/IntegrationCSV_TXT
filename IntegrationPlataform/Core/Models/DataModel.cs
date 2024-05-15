@@ -10,7 +10,14 @@ internal class DataModel
     public string CLASSIFICACAO { get; set; }
     public string PARTICIPANTE { get; set; }
 
-    public DataModel(string gENERO, string cATEGORIA, string mIDIA, string tIPO_MIDIA, string cLASSIFICACAO, string pARTICIPANTE)
+    public DataModel(
+        string gENERO,
+        string cATEGORIA,
+        string mIDIA,
+        string tIPO_MIDIA,
+        string cLASSIFICACAO,
+        string pARTICIPANTE
+    )
     {
         GENERO = gENERO;
         CATEGORIA = cATEGORIA;
@@ -19,8 +26,6 @@ internal class DataModel
         CLASSIFICACAO = cLASSIFICACAO;
         PARTICIPANTE = pARTICIPANTE;
     }
-    public DataModel()
-    {
-        
-    }
+
+    public DataModel() { }
 }

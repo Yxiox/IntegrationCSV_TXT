@@ -6,7 +6,5 @@ using System.Threading.Tasks;
 
 namespace Core.Csv
 {
-    internal class CsvImporter
-    {
-    }
+    internal class CsvImporter { }
 }
