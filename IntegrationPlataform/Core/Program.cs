@@ -5,6 +5,7 @@ using Core.Txt;
 using QuickKit.Cmd;
 using QuickKit.Cmd.Enums;
 
+Directory.CreateDirectory(FilePath.PATH);
 var opcao = MainMenu.Mostrar();
 
 switch (opcao)
@@ -19,6 +20,7 @@ switch (opcao)
         CsvExporter.ExportToCsv();
         break;
     case 4:
+        await CsvImporter.Import();
         break;
     default:
         Consoler.WriteLine("Opção inválida", AlertType.Warning);
