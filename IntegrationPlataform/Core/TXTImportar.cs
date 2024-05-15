@@ -23,8 +23,7 @@ public class TXTImportar
 
         for (int i = 21; i <= 70; i++)
             Categoria += Dados[i];
-        {
-        }
+        { }
         for (int i = 71; i <= 120; i++)
         {
             Midia += Dados[i];
@@ -42,6 +41,8 @@ public class TXTImportar
             Participante += Dados[i];
         }
 
-        await TxtRepository.InserirAsync(new DataModel(Genero, Categoria, Midia, TipoMidia, Classificacao, Participante));
+        await TxtRepository.InserirAsync(
+            new DataModel(Genero, Categoria, Midia, TipoMidia, Classificacao, Participante)
+        );
     }
 }

@@ -15,6 +15,5 @@ namespace Core.Model
         public string TipoMidia { get; set; }
         public int Classificacao { get; set; }
         public string Participante { get; set; }
-
     }
 }

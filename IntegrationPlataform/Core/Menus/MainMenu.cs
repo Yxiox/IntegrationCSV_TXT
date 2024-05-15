@@ -29,7 +29,6 @@ internal class MainMenu
             {
                 break;
             }
-
         } while (true);
         return opcao;
     }
