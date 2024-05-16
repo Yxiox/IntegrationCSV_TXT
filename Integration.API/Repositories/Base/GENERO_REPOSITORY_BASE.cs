@@ -119,7 +119,7 @@ WHERE ID = @idParam
     }
 
     public async Task<GENERO_BASE?> GetByIdAsync(
-        int id,
+        string id,
         CancellationToken cancellationToken = default
     )
     {

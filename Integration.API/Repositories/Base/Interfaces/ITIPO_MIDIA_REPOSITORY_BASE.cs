@@ -15,7 +15,7 @@ public interface ITIPO_MIDIA_REPOSITORY_BASE
         CancellationToken cancellationToken = default
     );
     public Task<TIPO_MIDIA_BASE?> GetByIdAsync(
-        int id,
+        string id,
         CancellationToken cancellationToken = default
     );
     public Task<int> InsertAsync(

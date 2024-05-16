@@ -14,7 +14,7 @@ public interface IGENERO_REPOSITORY_BASE
     public Task<IEnumerable<GENERO_BASE>> GetAllAsync(
         CancellationToken cancellationToken = default
     );
-    public Task<GENERO_BASE?> GetByIdAsync(int id, CancellationToken cancellationToken = default);
+    public Task<GENERO_BASE?> GetByIdAsync(string id, CancellationToken cancellationToken = default);
     public Task<int> InsertAsync(GENERO_BASE entity, CancellationToken cancellationToken = default);
     public Task<int> UpdateAsync(GENERO_BASE entity, CancellationToken cancellationToken = default);
     public Task<int> DeleteAsync(GENERO_BASE entity, CancellationToken cancellationToken = default);

@@ -15,7 +15,7 @@ public interface ICLASSIFICACAO_REPOSITORY_BASE
         CancellationToken cancellationToken = default
     );
     public Task<CLASSIFICACAO_BASE?> GetByIdAsync(
-        int id,
+        string id,
         CancellationToken cancellationToken = default
     );
     public Task<int> InsertAsync(

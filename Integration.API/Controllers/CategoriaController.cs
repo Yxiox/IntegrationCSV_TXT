@@ -2,12 +2,13 @@
 using Integration.API.Repositories.Interfaces;
 using Microsoft.AspNetCore.Mvc;
 using QuickKit.AspNetCore.Attributes;
+using System.Net;
 
 namespace Integration.API.Controllers;
 
 [ApiController]
 [Route("[controller]")]
-public class CategoriaController : ControllerBase
+public class CategoriaController : ControllerHelper
 {
     private readonly ICATEGORIA_REPOSITORY _categoria_repository;
 
@@ -20,7 +21,7 @@ public class CategoriaController : ControllerBase
     public async Task<IActionResult> InserirAsync(CATEGORIA categoria, CancellationToken cancellationToken)
     {
         var result = await _categoria_repository.InsertAsync(categoria, cancellationToken);
-        return result > 0 ? Created() : BadRequest();
+        return Handle(result);
     }
 
     [GetAll]
@@ -30,27 +31,27 @@ public class CategoriaController : ControllerBase
     }
 
     [GetById]
-    public async Task<IActionResult> GetById(int id, CancellationToken cancellationToken)
+    public async Task<IActionResult> GetById(string id, CancellationToken cancellationToken)
     {
         var result = await _categoria_repository.GetByIdAsync(id, cancellationToken);
-        return result is not null ? Ok() : NotFound();
+        return Handle(() => result is not null, failure: HttpStatusCode.NotFound, data: result);
     }
 
     [Delete]
-    public async Task<IActionResult> DeleteAsync(int id, CancellationToken cancellationToken)
+    public async Task<IActionResult> DeleteAsync(string id, CancellationToken cancellationToken)
     {
         var categoria = await _categoria_repository.GetByIdAsync(id, cancellationToken);
 
         if (categoria is null) return NotFound();
 
         var result = await _categoria_repository.DeleteAsync(categoria, cancellationToken);
-        return result > 0 ? Ok() : BadRequest();
+        return Handle(result);
     }
 
     [Update]
     public async Task<IActionResult> UpdateAsync(CATEGORIA categoria, CancellationToken cancellationToken)
     {
         var result = await _categoria_repository.UpdateAsync(categoria, cancellationToken);
-        return result > 0 ? Ok() : BadRequest();
+        return Handle(result);
     }
 }

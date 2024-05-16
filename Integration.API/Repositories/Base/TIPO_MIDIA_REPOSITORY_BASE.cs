@@ -119,7 +119,7 @@ WHERE ID = @idParam
     }
 
     public async Task<TIPO_MIDIA_BASE?> GetByIdAsync(
-        int id,
+        string id,
         CancellationToken cancellationToken = default
     )
     {

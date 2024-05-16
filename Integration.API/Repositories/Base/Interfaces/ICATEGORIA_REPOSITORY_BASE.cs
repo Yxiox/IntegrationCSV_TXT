@@ -15,7 +15,7 @@ public interface ICATEGORIA_REPOSITORY_BASE
         CancellationToken cancellationToken = default
     );
     public Task<CATEGORIA_BASE?> GetByIdAsync(
-        int id,
+        string id,
         CancellationToken cancellationToken = default
     );
     public Task<int> InsertAsync(
