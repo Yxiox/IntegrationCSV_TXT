@@ -1,7 +1,7 @@
-﻿using Integration.API.Entities;
+﻿using System.Data;
+using Integration.API.Entities;
 using Integration.API.Repositories;
 using Microsoft.AspNetCore.Mvc;
-using System.Data;
 
 namespace Integration.API.Controllers;
 
@@ -21,7 +21,8 @@ public class CategoriaController : ControllerBase
     {
         var result = await _categoria_repository.InsertAsync(categoria);
 
-        if (result > 0) return Ok();
+        if (result > 0)
+            return Ok();
 
         return BadRequest(result);
     }

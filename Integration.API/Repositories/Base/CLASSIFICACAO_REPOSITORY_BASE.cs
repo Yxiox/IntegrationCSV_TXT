@@ -25,6 +25,8 @@ public class CLASSIFICACAO_REPOSITORY_BASE : ICLASSIFICACAO_REPOSITORY_BASE
         CancellationToken cancellationToken = default
     )
     {
+        if (_connection.State == ConnectionState.Closed)
+            _connection.Open();
         var transaction = _connection.BeginTransaction();
         try
         {
@@ -55,6 +57,8 @@ WHERE ID = @idParam
         CancellationToken cancellationToken = default
     )
     {
+        if (_connection.State == ConnectionState.Closed)
+            _connection.Open();
         var transaction = _connection.BeginTransaction();
         try
         {
@@ -141,6 +145,8 @@ WHERE ID = @idParam
         CancellationToken cancellationToken = default
     )
     {
+        if (_connection.State == ConnectionState.Closed)
+            _connection.Open();
         var transaction = _connection.BeginTransaction();
         try
         {

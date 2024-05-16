@@ -1,7 +1,7 @@
 namespace Integration.API.Entities.Base;
 
 // File Auto Generated. DOT NOT MODIFY
-public abstract class CATEGORIA_BASE
+public class CATEGORIA_BASE
 {
     public int ID { get; set; }
     public string NOME { get; set; }

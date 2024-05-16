@@ -1,7 +1,7 @@
 namespace Integration.API.Entities.Base;
 
 // File Auto Generated. DOT NOT MODIFY
-public abstract class MIDIA_BASE
+public class MIDIA_BASE
 {
     public int ID { get; set; }
     public string NOME { get; set; }
