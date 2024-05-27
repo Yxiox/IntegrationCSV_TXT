@@ -1,8 +1,8 @@
-﻿using Integration.API.Entities;
+﻿using System.Net;
+using Integration.API.Entities;
 using Integration.API.Repositories.Interfaces;
 using Microsoft.AspNetCore.Mvc;
 using QuickKit.AspNetCore.Attributes;
-using System.Net;
 
 namespace Integration.API.Controllers;
 
@@ -18,7 +18,10 @@ public class CategoriaController : ControllerHelper
     }
 
     [Add]
-    public async Task<IActionResult> InserirAsync(CATEGORIA categoria, CancellationToken cancellationToken)
+    public async Task<IActionResult> InserirAsync(
+        CATEGORIA categoria,
+        CancellationToken cancellationToken
+    )
     {
         var result = await _categoria_repository.InsertAsync(categoria, cancellationToken);
         return Handle(result);
@@ -42,14 +45,19 @@ public class CategoriaController : ControllerHelper
     {
         var categoria = await _categoria_repository.GetByIdAsync(id, cancellationToken);
 
-        if (categoria is null) return NotFound();
+        if (categoria is null)
+            return NotFound();
 
         var result = await _categoria_repository.DeleteAsync(categoria, cancellationToken);
+
         return Handle(result);
     }
 
     [Update]
-    public async Task<IActionResult> UpdateAsync(CATEGORIA categoria, CancellationToken cancellationToken)
+    public async Task<IActionResult> UpdateAsync(
+        CATEGORIA categoria,
+        CancellationToken cancellationToken
+    )
     {
         var result = await _categoria_repository.UpdateAsync(categoria, cancellationToken);
         return Handle(result);

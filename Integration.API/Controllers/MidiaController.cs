@@ -1,8 +1,8 @@
-﻿using Integration.API.Entities;
+﻿using System.Net;
+using Integration.API.Entities;
 using Integration.API.Repositories.Interfaces;
 using Microsoft.AspNetCore.Mvc;
 using QuickKit.AspNetCore.Attributes;
-using System.Net;
 
 namespace Integration.API.Controllers;
 
@@ -42,7 +42,8 @@ public class MidiaController : ControllerHelper
     {
         var midia = await _midia_repository.GetByIdAsync(id, cancellationToken);
 
-        if (midia is null) return NotFound();
+        if (midia is null)
+            return NotFound();
 
         var result = await _midia_repository.DeleteAsync(midia, cancellationToken);
         return Handle(result);

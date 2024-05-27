@@ -13,6 +13,5 @@ namespace Integration.API.Repositories;
 
 public class PARTICIPANTES_REPOSITORY : PARTICIPANTES_REPOSITORY_BASE, IPARTICIPANTES_REPOSITORY
 {
-    public PARTICIPANTES_REPOSITORY(IDbConnection connection)
-        : base(connection) { }
+    
 }

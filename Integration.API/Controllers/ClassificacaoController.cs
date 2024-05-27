@@ -1,8 +1,8 @@
-﻿using Integration.API.Entities;
+﻿using System.Net;
+using Integration.API.Entities;
 using Integration.API.Repositories.Interfaces;
 using Microsoft.AspNetCore.Mvc;
 using QuickKit.AspNetCore.Attributes;
-using System.Net;
 
 namespace Integration.API.Controllers;
 
@@ -18,7 +18,10 @@ public class ClassificacaoController : ControllerHelper
     }
 
     [Add]
-    public async Task<IActionResult> InserirAsync(CLASSIFICACAO classificacao, CancellationToken cancellationToken)
+    public async Task<IActionResult> InserirAsync(
+        CLASSIFICACAO classificacao,
+        CancellationToken cancellationToken
+    )
     {
         var result = await _classificacao_repository.InsertAsync(classificacao, cancellationToken);
         return Handle(result);
@@ -42,14 +45,18 @@ public class ClassificacaoController : ControllerHelper
     {
         var classificacao = await _classificacao_repository.GetByIdAsync(id, cancellationToken);
 
-        if (classificacao is null) return NotFound();
+        if (classificacao is null)
+            return NotFound();
 
         var result = await _classificacao_repository.DeleteAsync(classificacao, cancellationToken);
         return Handle(result);
     }
 
     [Update]
-    public async Task<IActionResult> UpdateAsync(CLASSIFICACAO classificacao, CancellationToken cancellationToken)
+    public async Task<IActionResult> UpdateAsync(
+        CLASSIFICACAO classificacao,
+        CancellationToken cancellationToken
+    )
     {
         var result = await _classificacao_repository.UpdateAsync(classificacao, cancellationToken);
         return Handle(result);

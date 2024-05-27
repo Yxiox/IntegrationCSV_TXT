@@ -1,8 +1,8 @@
-﻿using Integration.API.Entities;
+﻿using System.Net;
+using Integration.API.Entities;
 using Integration.API.Repositories.Interfaces;
 using Microsoft.AspNetCore.Mvc;
 using QuickKit.AspNetCore.Attributes;
-using System.Net;
 
 namespace Integration.API.Controllers;
 
@@ -18,7 +18,10 @@ public class GeneroController : ControllerHelper
     }
 
     [Add]
-    public async Task<IActionResult> InserirAsync(GENERO genero, CancellationToken cancellationToken)
+    public async Task<IActionResult> InserirAsync(
+        GENERO genero,
+        CancellationToken cancellationToken
+    )
     {
         var result = await _genero_repository.InsertAsync(genero, cancellationToken);
         return Handle(result);
@@ -42,7 +45,8 @@ public class GeneroController : ControllerHelper
     {
         var genero = await _genero_repository.GetByIdAsync(id, cancellationToken);
 
-        if (genero is null) return NotFound();
+        if (genero is null)
+            return NotFound();
 
         var result = await _genero_repository.DeleteAsync(genero, cancellationToken);
         return Handle(result);

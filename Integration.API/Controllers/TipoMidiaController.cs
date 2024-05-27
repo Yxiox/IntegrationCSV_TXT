@@ -1,8 +1,8 @@
-﻿using Integration.API.Entities;
+﻿using System.Net;
+using Integration.API.Entities;
 using Integration.API.Repositories.Interfaces;
 using Microsoft.AspNetCore.Mvc;
 using QuickKit.AspNetCore.Attributes;
-using System.Net;
 
 namespace Integration.API.Controllers;
 
@@ -18,7 +18,10 @@ public class TipoMidiaController : ControllerHelper
     }
 
     [Add]
-    public async Task<IActionResult> InserirAsync(TIPO_MIDIA tipoMidia, CancellationToken cancellationToken)
+    public async Task<IActionResult> InserirAsync(
+        TIPO_MIDIA tipoMidia,
+        CancellationToken cancellationToken
+    )
     {
         var result = await _tipo_midia_repository.InsertAsync(tipoMidia, cancellationToken);
         return Handle(result);
@@ -42,14 +45,18 @@ public class TipoMidiaController : ControllerHelper
     {
         var tipoMidia = await _tipo_midia_repository.GetByIdAsync(id, cancellationToken);
 
-        if (tipoMidia is null) return NotFound();
+        if (tipoMidia is null)
+            return NotFound();
 
         var result = await _tipo_midia_repository.DeleteAsync(tipoMidia, cancellationToken);
         return Handle(result);
     }
 
     [Update]
-    public async Task<IActionResult> UpdateAsync(TIPO_MIDIA tipoMidia, CancellationToken cancellationToken)
+    public async Task<IActionResult> UpdateAsync(
+        TIPO_MIDIA tipoMidia,
+        CancellationToken cancellationToken
+    )
     {
         var result = await _tipo_midia_repository.UpdateAsync(tipoMidia, cancellationToken);
         return Handle(result);

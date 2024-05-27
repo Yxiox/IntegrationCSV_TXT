@@ -6,28 +6,21 @@ using Dapper;
 using FluentValidation;
 using Integration.API.Entities.Base;
 using Integration.API.Repositories.Base.Interfaces;
+using Integration.API.Repositories.Shared;
 using Microsoft.Extensions.Configuration;
 
 // File Auto Generated. DOT NOT MODIFY
 namespace Integration.API.Repositories.Base;
 
-public class MIDIA_REPOSITORY_BASE : IMIDIA_REPOSITORY_BASE
+public class MIDIA_REPOSITORY_BASE : Repository, IMIDIA_REPOSITORY_BASE
 {
-    private readonly IDbConnection _connection;
-
-    public MIDIA_REPOSITORY_BASE(IDbConnection connection)
-    {
-        _connection = connection;
-    }
+    private IDbConnection _connection;
 
     public async Task<int> DeleteAsync(
         MIDIA_BASE midia,
         CancellationToken cancellationToken = default
     )
     {
-        if (_connection.State == ConnectionState.Closed)
-            _connection.Open();
-        var transaction = _connection.BeginTransaction();
         try
         {
             object parameters = new { idParam = midia.ID };
@@ -35,19 +28,17 @@ public class MIDIA_REPOSITORY_BASE : IMIDIA_REPOSITORY_BASE
                 @"DELETE FROM midia
 WHERE ID = @idParam
 ";
-            using (_connection)
+            using (_connection = Create())
             {
                 CommandDefinition command =
                     new(sql, parameters, cancellationToken: cancellationToken);
                 var affectedRows = await _connection.ExecuteAsync(command);
 
-                transaction.Commit();
                 return affectedRows;
             }
         }
         catch (Exception)
         {
-            transaction.Rollback();
             throw;
         }
     }
@@ -57,9 +48,6 @@ WHERE ID = @idParam
         CancellationToken cancellationToken = default
     )
     {
-        if (_connection.State == ConnectionState.Closed)
-            _connection.Open();
-        var transaction = _connection.BeginTransaction();
         try
         {
             object parameters = new
@@ -82,19 +70,17 @@ WHERE ID = @idParam
 					,@datainativacaoParam
 					)
 ";
-            using (_connection)
+            using (_connection = Create())
             {
                 CommandDefinition command =
                     new(sql, parameters, cancellationToken: cancellationToken);
                 var affectedRows = await _connection.ExecuteAsync(command);
 
-                transaction.Commit();
                 return affectedRows;
             }
         }
         catch (Exception)
         {
-            transaction.Rollback();
             throw;
         }
     }
@@ -106,7 +92,7 @@ WHERE ID = @idParam
         try
         {
             var sql = @"SELECT * FROM midia";
-            using (_connection)
+            using (_connection = Create())
             {
                 CommandDefinition command = new(sql, cancellationToken: cancellationToken);
                 return await _connection.QueryAsync<MIDIA_BASE>(command);
@@ -127,7 +113,7 @@ WHERE ID = @idParam
         {
             object parameters = new { idParam = id };
             var sql = @"SELECT * FROM midia WHERE ID = @idParam";
-            using (_connection)
+            using (_connection = Create())
             {
                 CommandDefinition command =
                     new(sql, parameters, cancellationToken: cancellationToken);
@@ -145,9 +131,6 @@ WHERE ID = @idParam
         CancellationToken cancellationToken = default
     )
     {
-        if (_connection.State == ConnectionState.Closed)
-            _connection.Open();
-        var transaction = _connection.BeginTransaction();
         try
         {
             object parameters = new
@@ -164,19 +147,17 @@ WHERE ID = @idParam
                     ,DATAINATIVACAO = @datainativacaoParam
                      WHERE ID = @idParam;
 ";
-            using (_connection)
+            using (_connection = Create())
             {
                 CommandDefinition command =
                     new(sql, parameters, cancellationToken: cancellationToken);
                 var affectedRows = await _connection.ExecuteAsync(command);
 
-                transaction.Commit();
                 return affectedRows;
             }
         }
         catch (Exception)
         {
-            transaction.Rollback();
             throw;
         }
     }
