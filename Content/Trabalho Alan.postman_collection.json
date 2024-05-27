@@ -1,0 +1,591 @@
+{
+	"info": {
+		"_postman_id": "f2163ec6-3649-43fb-96c7-856ab0ffe25d",
+		"name": "Trabalho Alan",
+		"schema": "https://schema.getpostman.com/json/collection/v2.0.0/collection.json",
+		"_exporter_id": "34609296"
+	},
+	"item": [
+		{
+			"name": "Categoria",
+			"item": [
+				{
+					"name": "Get All Categoria",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": "{{URL}}/categoria"
+					},
+					"response": []
+				},
+				{
+					"name": "Add Categoria",
+					"request": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n    \"id\": \"f76\",\r\n    \"nome\": \"sla\",\r\n    \"DATAREGISTRO\": \"2024-02-02\",\r\n    \"DATAINATIVACAO\": \"2024-02-02\"\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": "{{URL}}/categoria/add"
+					},
+					"response": []
+				},
+				{
+					"name": "Get Categoria By Id",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": "{{URL}}/categoria/0017bd53-1251-11ef-a04e-02500869912c"
+					},
+					"response": []
+				},
+				{
+					"name": "Delete Categoria",
+					"request": {
+						"method": "DELETE",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "{{URL}}/categoria/delete?id=0017bd53-1251-11ef-a04e-02500869912c",
+							"host": [
+								"{{URL}}"
+							],
+							"path": [
+								"categoria",
+								"delete"
+							],
+							"query": [
+								{
+									"key": "id",
+									"value": "0017bd53-1251-11ef-a04e-02500869912c"
+								}
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Update Categoria",
+					"request": {
+						"method": "PUT",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n    \"id\": \"0017bd53-1251-11ef-a04e-02500869912c\",\r\n    \"nome\": \"sla12\",\r\n    \"DATAREGISTRO\": \"2024-02-02\",\r\n    \"DATAINATIVACAO\": \"2024-02-02\"\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": "{{URL}}/categoria/update"
+					},
+					"response": []
+				}
+			]
+		},
+		{
+			"name": "Classificacao",
+			"item": [
+				{
+					"name": "Get All Classificacao",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": "{{URL}}/classificacao"
+					},
+					"response": []
+				},
+				{
+					"name": "Add Classificacao",
+					"request": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n    \"id\": \"f76\",\r\n    \"nome\": \"sla\",\r\n    \"DATAREGISTRO\": \"2024-02-02\",\r\n    \"DATAINATIVACAO\": \"2024-02-02\"\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": "{{URL}}/classificacao/add"
+					},
+					"response": []
+				},
+				{
+					"name": "Get Classificacao By Id",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": "{{URL}}/classificacao/0017b86b-1251-11ef-a04e-02500869912c"
+					},
+					"response": []
+				},
+				{
+					"name": "Delete Classificacao",
+					"request": {
+						"method": "DELETE",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "{{URL}}/classificacao/delete?id=0017bd53-1251-11ef-a04e-02500869912c",
+							"host": [
+								"{{URL}}"
+							],
+							"path": [
+								"classificacao",
+								"delete"
+							],
+							"query": [
+								{
+									"key": "id",
+									"value": "0017bd53-1251-11ef-a04e-02500869912c"
+								}
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Update Classificacao",
+					"request": {
+						"method": "PUT",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n    \"id\": \"0017bd53-1251-11ef-a04e-02500869912c\",\r\n    \"nome\": \"sla12\",\r\n    \"DATAREGISTRO\": \"2024-02-02\",\r\n    \"DATAINATIVACAO\": \"2024-02-02\"\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": "{{URL}}/classificacao/update"
+					},
+					"response": []
+				}
+			]
+		},
+		{
+			"name": "Genero",
+			"item": [
+				{
+					"name": "Get All Genero",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": "{{URL}}/genero"
+					},
+					"response": []
+				},
+				{
+					"name": "Add Genero",
+					"request": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n    \"id\": \"f76\",\r\n    \"nome\": \"sla\",\r\n    \"DATAREGISTRO\": \"2024-02-02\",\r\n    \"DATAINATIVACAO\": \"2024-02-02\"\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": "{{URL}}/genero/add"
+					},
+					"response": []
+				},
+				{
+					"name": "Get Genero By Id",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": "{{URL}}/genero/0017a821-1251-11ef-a04e-02500869912c"
+					},
+					"response": []
+				},
+				{
+					"name": "Delete Genero",
+					"request": {
+						"method": "DELETE",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "{{URL}}/genero/delete?id=269bd15d-1c76-11ef-99b0-02500869912c",
+							"host": [
+								"{{URL}}"
+							],
+							"path": [
+								"genero",
+								"delete"
+							],
+							"query": [
+								{
+									"key": "id",
+									"value": "269bd15d-1c76-11ef-99b0-02500869912c"
+								}
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Update Genero",
+					"request": {
+						"method": "PUT",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n    \"id\": \"0017bd53-1251-11ef-a04e-02500869912c\",\r\n    \"nome\": \"sla12\",\r\n    \"DATAREGISTRO\": \"2024-02-02\",\r\n    \"DATAINATIVACAO\": \"2024-02-02\"\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": "{{URL}}/genero/update"
+					},
+					"response": []
+				}
+			]
+		},
+		{
+			"name": "Midia",
+			"item": [
+				{
+					"name": "Get All Midia",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": "{{URL}}/midia"
+					},
+					"response": []
+				},
+				{
+					"name": "Add Midia",
+					"request": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n    \"id\": \"f76\",\r\n    \"nome\": \"sla\",\r\n    \"DATAREGISTRO\": \"2024-02-02\"\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": "{{URL}}/midia/add"
+					},
+					"response": []
+				},
+				{
+					"name": "Get Midia By Id",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": "{{URL}}/midia/0017a821-1251-11ef-a04e-02500869912c"
+					},
+					"response": []
+				},
+				{
+					"name": "Delete Midia",
+					"request": {
+						"method": "DELETE",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "{{URL}}/midia/delete?id=0017bd53-1251-11ef-a04e-02500869912c",
+							"host": [
+								"{{URL}}"
+							],
+							"path": [
+								"midia",
+								"delete"
+							],
+							"query": [
+								{
+									"key": "id",
+									"value": "0017bd53-1251-11ef-a04e-02500869912c"
+								}
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Update Midia",
+					"request": {
+						"method": "PUT",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n    \"id\": \"0017bd53-1251-11ef-a04e-02500869912c\",\r\n    \"nome\": \"sla12\",\r\n    \"DATAREGISTRO\": \"2024-02-02\",\r\n    \"DATAINATIVACAO\": \"2024-02-02\"\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": "{{URL}}/midia/update"
+					},
+					"response": []
+				}
+			]
+		},
+		{
+			"name": "Participantes",
+			"item": [
+				{
+					"name": "Get All Participantes",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": "{{URL}}/participante"
+					},
+					"response": []
+				},
+				{
+					"name": "Add Participantes",
+					"request": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n    \"id\": \"f76\",\r\n    \"nome\": \"sla\",\r\n    \"DATAREGISTRO\": \"2024-02-02\"\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": "{{URL}}/participante/add"
+					},
+					"response": []
+				},
+				{
+					"name": "Get Participantes By Id",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": "{{URL}}/participante/6783edd5-1c7d-11ef-99b0-02500869912c"
+					},
+					"response": []
+				},
+				{
+					"name": "Delete Participantes",
+					"request": {
+						"method": "DELETE",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "{{URL}}/participante/delete?id=6783edd5-1c7d-11ef-99b0-02500869912c",
+							"host": [
+								"{{URL}}"
+							],
+							"path": [
+								"participante",
+								"delete"
+							],
+							"query": [
+								{
+									"key": "id",
+									"value": "6783edd5-1c7d-11ef-99b0-02500869912c"
+								}
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Update Participantes",
+					"request": {
+						"method": "PUT",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n    \"id\": \"0017c460-1251-11ef-a04e-02500869912c\",\r\n    \"nome\": \"Bruce Willis 2\",\r\n    \"DATAREGISTRO\": \"2024-02-02\",\r\n    \"DATAINATIVACAO\": \"2024-02-02\"\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": "{{URL}}/participante/update"
+					},
+					"response": []
+				}
+			]
+		},
+		{
+			"name": "TipoMidia",
+			"item": [
+				{
+					"name": "Get All TipoMidia",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": "{{URL}}/tipomidia"
+					},
+					"response": []
+				},
+				{
+					"name": "Add TipoMidia",
+					"request": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n    \"id\": \"f76\",\r\n    \"nome\": \"sla\",\r\n    \"DATAREGISTRO\": \"2024-02-02\"\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": "{{URL}}/tipomidia/add"
+					},
+					"response": []
+				},
+				{
+					"name": "Get TipoMidia By Id",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": "{{URL}}/tipomidia/cd6e5dcb-1c7d-11ef-99b0-02500869912c"
+					},
+					"response": []
+				},
+				{
+					"name": "Delete TipoMidia",
+					"request": {
+						"method": "DELETE",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "{{URL}}/tipomidia/delete?id=6783edd5-1c7d-11ef-99b0-02500869912c",
+							"host": [
+								"{{URL}}"
+							],
+							"path": [
+								"tipomidia",
+								"delete"
+							],
+							"query": [
+								{
+									"key": "id",
+									"value": "6783edd5-1c7d-11ef-99b0-02500869912c"
+								}
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Update TipoMidia",
+					"request": {
+						"method": "PUT",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n    \"id\": \"cd6e5dcb-1c7d-11ef-99b0-02500869912c\",\r\n    \"nome\": \"sla2\",\r\n    \"DATAREGISTRO\": \"2024-02-02\",\r\n    \"DATAINATIVACAO\": \"2024-02-02\"\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": "{{URL}}/tipomidia/update"
+					},
+					"response": []
+				}
+			]
+		}
+	],
+	"event": [
+		{
+			"listen": "prerequest",
+			"script": {
+				"type": "text/javascript",
+				"packages": {},
+				"exec": [
+					""
+				]
+			}
+		},
+		{
+			"listen": "test",
+			"script": {
+				"type": "text/javascript",
+				"packages": {},
+				"exec": [
+					""
+				]
+			}
+		}
+	],
+	"variable": [
+		{
+			"key": "URL",
+			"value": "https://localhost:7283",
+			"type": "string"
+		}
+	]
+}

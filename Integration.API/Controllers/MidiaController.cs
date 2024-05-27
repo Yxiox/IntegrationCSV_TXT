@@ -7,7 +7,7 @@ using QuickKit.AspNetCore.Attributes;
 namespace Integration.API.Controllers;
 
 [ApiController]
-[Route("controller")]
+[Route("[controller]")]
 public class MidiaController : ControllerHelper
 {
     private readonly IMIDIA_REPOSITORY _midia_repository;
