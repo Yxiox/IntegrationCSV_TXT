@@ -1,4 +1,5 @@
 using System.Data;
+using Integration.API.Entities;
 using MySql.Data.MySqlClient;
 
 var builder = WebApplication.CreateBuilder(args);
@@ -9,7 +10,7 @@ builder.Services.AddEndpointsApiExplorer();
 builder.Services.AddSwaggerGen();
 
 builder.Services.Scan(c =>
-    c.FromCallingAssembly()
+    c.FromAssemblies([typeof(Program).Assembly, typeof(CATEGORIA).Assembly])
         .AddClasses(false)
         .AsMatchingInterface()
         .AsImplementedInterfaces()
