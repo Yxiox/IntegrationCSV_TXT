@@ -1,10 +1,12 @@
 ﻿using Catalogo.API.Entities;
 using Catalogo.API.Entities.Base;
+using Catalogo.API.Properties.Dto;
 using Catalogo.API.Repositories.Interfaces;
 using Integration.API.Repositories.Interfaces;
+using Integration.Shared.Exceptions;
 using Integration.Shared.Extensions;
-using System.Net;
-using System.Xml.Linq;
+using System.Text;
+using System.Xml;
 
 namespace Catalogo.API.Services;
 
@@ -66,28 +68,70 @@ public class CatalogoService : ICatalogoService
         await _catalogo_repository.DeleteAsync(entity!, cancellation);
     }
 
-    public async Task<CATALOGO_BASE?> GetByIdAsync(string id, CancellationToken cancellation = default)
+    public async Task<CatalogoDto?> GetByIdAsync(string id, CancellationToken cancellation = default)
     {
-        var r = GetNumberAsFullText(45);
-        return await _catalogo_repository.GetByIdAsync(id, cancellation);
+        var catalogo = await _catalogo_repository.GetByIdAsync(id, cancellation);
+        return catalogo is null ? null : await ToDTO(catalogo);
     }
 
-    public async Task<IEnumerable<CATALOGO_BASE>> GetAllAsync(CancellationToken cancellation = default)
+    public async Task<IEnumerable<CatalogoDto>> GetAllAsync(CancellationToken cancellation = default)
     {
-        return await _catalogo_repository.GetAllAsync(cancellation);
+        var catalogos = await _catalogo_repository.GetAllAsync(cancellation);
+
+        return await Task.WhenAll(catalogos.Select(async catalogo => await ToDTO(catalogo)));
     }
 
-    public string GetNumberAsFullText(int number)
+    public async Task<string> GetNumberAsFullText(int number)
     {
-        WebRequest request = WebRequest.Create("https://www.dataaccess.com/webservicesserver/numberconversion.wso");
+        string url = "https://www.dataaccess.com/webservicesserver/numberconversion.wso";
 
-        WebResponse response = request.GetResponse();
-        using (var sr = new System.IO.StreamReader(response.GetResponseStream()))
+        var soapEnvelope =
+                    @$"<?xml version=""1.0"" encoding=""utf-8""?>
+            <soap:Envelope xmlns:soap=""http://schemas.xmlsoap.org/soap/envelope/"">
+              <soap:Body>
+                <NumberToWords xmlns=""http://www.dataaccess.com/webservicesserver/"">
+                  <ubiNum>{number}</ubiNum>
+                </NumberToWords>
+              </soap:Body>
+            </soap:Envelope>";
+
+        var content = new StringContent(soapEnvelope, Encoding.UTF8, "text/xml");
+
+        using (var httpClient = new HttpClient())
         {
-            XDocument xmlDoc = new XDocument();
-            xmlDoc = XDocument.Parse(sr.ReadToEnd());
-        }
+            var response = await httpClient.PostAsync(url, content);
+            string result = await response.Content.ReadAsStringAsync();
 
-        return response.ToString();
+            XmlDocument doc = new XmlDocument();
+            doc.LoadXml(result);
+
+            // Namespace Manager para lidar com os namespaces do XML
+            XmlNamespaceManager nsmgr = new XmlNamespaceManager(doc.NameTable);
+            nsmgr.AddNamespace("soap", "http://schemas.xmlsoap.org/soap/envelope/");
+            nsmgr.AddNamespace("web", "http://www.dataaccess.com/webservicesserver/");
+
+            // Selecionar o nó desejado usando XPath
+            XmlNode? resultNode = doc.SelectSingleNode("//soap:Body/web:NumberToWordsResponse/web:NumberToWordsResult", nsmgr);
+
+            if (resultNode is not null)
+            {
+                return resultNode.InnerText;
+            }
+            else
+            {
+                throw new NotFoundException("Não foi possível converter o número");
+            }
+        }
+    }
+
+    private async Task<CatalogoDto> ToDTO(CATALOGO_BASE catalogo)
+    {
+        var numberFullText = await GetNumberAsFullText(catalogo.PRECO);
+
+        return new CatalogoDto()
+        {
+            Catalogo = catalogo,
+            PrecoExtenso = numberFullText
+        };
     }
 }

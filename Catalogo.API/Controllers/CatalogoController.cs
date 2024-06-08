@@ -23,9 +23,9 @@ public class CatalogoController : ControllerBase
     }
 
     [GetById]
-    public async Task<IActionResult> GetByIdAsync(string id, CancellationToken cancellationToken = default)
+    public async Task<IActionResult> GetByIdAsync(string idGuid, CancellationToken cancellationToken = default)
     {
-        return Ok(await _catalogoService.GetByIdAsync(id, cancellationToken));
+        return Ok(await _catalogoService.GetByIdAsync(idGuid, cancellationToken));
     }
 
     [Add]
