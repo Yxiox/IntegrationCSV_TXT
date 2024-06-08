@@ -43,9 +43,9 @@ public class CatalogoController : ControllerBase
     }
 
     [Delete]
-    public async Task<IActionResult> DeleteAsync(string id, CancellationToken cancellationToken = default)
+    public async Task<IActionResult> DeleteAsync(string idGuid, CancellationToken cancellationToken = default)
     {
-        await _catalogoService.DeleteAsync(id, cancellationToken);
+        await _catalogoService.DeleteAsync(idGuid, cancellationToken);
         return Ok();
     }
 }

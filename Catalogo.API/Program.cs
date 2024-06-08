@@ -1,4 +1,5 @@
 using Integration.API.Entities;
+using Integration.Shared.Config;
 
 var builder = WebApplication.CreateBuilder(args);
 
@@ -16,6 +17,8 @@ builder.Services.Scan(c =>
         .WithTransientLifetime()
 );
 
+builder.Services.AddIntegration();
+
 var app = builder.Build();
 
 if (app.Environment.IsDevelopment())
@@ -23,6 +26,8 @@ if (app.Environment.IsDevelopment())
     app.UseSwagger();
     app.UseSwaggerUI();
 }
+
+app.AddIntegration();
 
 app.UseHttpsRedirection();
 
