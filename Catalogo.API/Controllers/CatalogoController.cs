@@ -6,7 +6,7 @@ using QuickKit.AspNetCore.Attributes;
 namespace Catalogo.API.Controllers;
 
 [ApiController]
-[Route("[controller]")]
+[Route("catalogos")]
 public class CatalogoController : ControllerBase
 {
     private readonly ICatalogoService _catalogoService;

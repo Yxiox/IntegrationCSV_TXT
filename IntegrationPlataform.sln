@@ -9,7 +9,13 @@ Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Integration.API", "Integrat
 EndProject
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Catalogo.API", "Catalogo.API\Catalogo.API.csproj", "{AB556A87-59BA-40FF-81FD-6F8B4026C4DE}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Integration.Shared", "Integration.Shared\Integration.Shared.csproj", "{F72C1B3E-EE78-41AE-81BB-DE862D7BDDA8}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Integration.Shared", "Integration.Shared\Integration.Shared.csproj", "{F72C1B3E-EE78-41AE-81BB-DE862D7BDDA8}"
+EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Legado", "Legado", "{DEFEFCF2-E98B-4BA5-99BA-5BEB69D3A71D}"
+EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "ApoioNegocio", "ApoioNegocio", "{ED3EEFFC-F88C-4087-9B7A-43DFF0081C4A}"
+EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Shared", "Shared", "{A454CD9A-507D-484B-AD2F-6496DA212AF7}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
@@ -36,6 +42,11 @@ Global
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
+	EndGlobalSection
+	GlobalSection(NestedProjects) = preSolution
+		{7E2FBB3D-4638-42BE-8333-D469BFD91ED0} = {DEFEFCF2-E98B-4BA5-99BA-5BEB69D3A71D}
+		{CCE0FDCE-1D79-4FFF-9F50-DA67E913C7D3} = {ED3EEFFC-F88C-4087-9B7A-43DFF0081C4A}
+		{F72C1B3E-EE78-41AE-81BB-DE862D7BDDA8} = {A454CD9A-507D-484B-AD2F-6496DA212AF7}
 	EndGlobalSection
 	GlobalSection(ExtensibilityGlobals) = postSolution
 		SolutionGuid = {978F9739-F679-427A-8BBE-0D3838A1AB0C}
