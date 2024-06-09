@@ -4,12 +4,9 @@ using Catalogo.API.Properties.Dto;
 using Catalogo.API.Repositories.Interfaces;
 using Integration.API.Entities;
 using Integration.API.Entities.Base;
-using Integration.API.Repositories.Interfaces;
 using Integration.Shared.Consts;
-using Integration.Shared.Exceptions;
 using Integration.Shared.Extensions;
 using System.Text;
-using System.Threading;
 using System.Xml;
 
 namespace Catalogo.API.Services;
@@ -70,17 +67,17 @@ public class CatalogoService : ICatalogoService
     public async Task<CatalogoDto?> GetByIdAsync(string id, CancellationToken cancellationToken = default)
     {
         var catalogo = await _catalogo_repository.GetByIdAsync(id, cancellationToken);
-        return catalogo is null ? null : await ToDTO(catalogo, cancellationToken);
+        return catalogo is null ? null : await ToDTOAsync(catalogo, cancellationToken);
     }
 
     public async Task<IEnumerable<CatalogoDto>> GetAllAsync(CancellationToken cancellationToken = default)
     {
         var catalogos = await _catalogo_repository.GetAllAsync(cancellationToken);
 
-        return await Task.WhenAll(catalogos.Select(async catalogo => await ToDTO(catalogo, cancellationToken)));
+        return await Task.WhenAll(catalogos.Select(async catalogo => await ToDTOAsync(catalogo, cancellationToken)));
     }
 
-    public async Task<string> GetNumberAsFullText(int number)
+    public async Task<string> GetNumberAsFullTextAsync(int number)
     {
         string url = "https://www.dataaccess.com/webservicesserver/numberconversion.wso";
 
@@ -115,7 +112,7 @@ public class CatalogoService : ICatalogoService
         }
     }
 
-    private async Task<CatalogoDto> ToDTO(CATALOGO_BASE catalogo, CancellationToken cancellationToken)
+    private async Task<CatalogoDto> ToDTOAsync(CATALOGO_BASE catalogo, CancellationToken cancellationToken)
     {
         var genero = await _httpClient.FromJsonAsync<GENERO>(IntegrationAPI.GENERO, catalogo.ID_GENERO, cancellationToken);
         var categoria = await _httpClient.FromJsonAsync<CATEGORIA>(IntegrationAPI.CATEGORIA, catalogo.ID_CATEGORIA, cancellationToken);
@@ -126,7 +123,7 @@ public class CatalogoService : ICatalogoService
 
         VerifyNull(genero, categoria, classificacao, midia, participante, tipoMidia);
 
-        var precoExtenso = await GetNumberAsFullText(catalogo.PRECO);
+        var precoExtenso = await GetNumberAsFullTextAsync(catalogo.PRECO);
 
         return new CatalogoDto()
         {
