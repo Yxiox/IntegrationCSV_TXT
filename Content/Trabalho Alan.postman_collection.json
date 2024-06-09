@@ -1,9 +1,9 @@
 {
 	"info": {
-		"_postman_id": "f2163ec6-3649-43fb-96c7-856ab0ffe25d",
+		"_postman_id": "610f3449-1e5f-4cbf-ba08-736c638ef32e",
 		"name": "Trabalho Alan",
-		"schema": "https://schema.getpostman.com/json/collection/v2.0.0/collection.json",
-		"_exporter_id": "34609296"
+		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
+		"_exporter_id": "24493057"
 	},
 	"item": [
 		{
@@ -14,7 +14,15 @@
 					"request": {
 						"method": "GET",
 						"header": [],
-						"url": "{{URL}}/categoria"
+						"url": {
+							"raw": "{{URL}}/categoria",
+							"host": [
+								"{{URL}}"
+							],
+							"path": [
+								"categoria"
+							]
+						}
 					},
 					"response": []
 				},
@@ -32,7 +40,16 @@
 								}
 							}
 						},
-						"url": "{{URL}}/categoria/add"
+						"url": {
+							"raw": "{{URL}}/categoria/add",
+							"host": [
+								"{{URL}}"
+							],
+							"path": [
+								"categoria",
+								"add"
+							]
+						}
 					},
 					"response": []
 				},
@@ -41,7 +58,16 @@
 					"request": {
 						"method": "GET",
 						"header": [],
-						"url": "{{URL}}/categoria/0017bd53-1251-11ef-a04e-02500869912c"
+						"url": {
+							"raw": "{{URL}}/categoria/0017bd53-1251-11ef-a04e-02500869912c",
+							"host": [
+								"{{URL}}"
+							],
+							"path": [
+								"categoria",
+								"0017bd53-1251-11ef-a04e-02500869912c"
+							]
+						}
 					},
 					"response": []
 				},
@@ -92,7 +118,16 @@
 								}
 							}
 						},
-						"url": "{{URL}}/categoria/update"
+						"url": {
+							"raw": "{{URL}}/categoria/update",
+							"host": [
+								"{{URL}}"
+							],
+							"path": [
+								"categoria",
+								"update"
+							]
+						}
 					},
 					"response": []
 				}
@@ -106,7 +141,15 @@
 					"request": {
 						"method": "GET",
 						"header": [],
-						"url": "{{URL}}/classificacao"
+						"url": {
+							"raw": "{{URL}}/classificacao",
+							"host": [
+								"{{URL}}"
+							],
+							"path": [
+								"classificacao"
+							]
+						}
 					},
 					"response": []
 				},
@@ -124,7 +167,16 @@
 								}
 							}
 						},
-						"url": "{{URL}}/classificacao/add"
+						"url": {
+							"raw": "{{URL}}/classificacao/add",
+							"host": [
+								"{{URL}}"
+							],
+							"path": [
+								"classificacao",
+								"add"
+							]
+						}
 					},
 					"response": []
 				},
@@ -133,7 +185,16 @@
 					"request": {
 						"method": "GET",
 						"header": [],
-						"url": "{{URL}}/classificacao/0017b86b-1251-11ef-a04e-02500869912c"
+						"url": {
+							"raw": "{{URL}}/classificacao/0017b86b-1251-11ef-a04e-02500869912c",
+							"host": [
+								"{{URL}}"
+							],
+							"path": [
+								"classificacao",
+								"0017b86b-1251-11ef-a04e-02500869912c"
+							]
+						}
 					},
 					"response": []
 				},
@@ -184,7 +245,16 @@
 								}
 							}
 						},
-						"url": "{{URL}}/classificacao/update"
+						"url": {
+							"raw": "{{URL}}/classificacao/update",
+							"host": [
+								"{{URL}}"
+							],
+							"path": [
+								"classificacao",
+								"update"
+							]
+						}
 					},
 					"response": []
 				}
@@ -198,7 +268,15 @@
 					"request": {
 						"method": "GET",
 						"header": [],
-						"url": "{{URL}}/genero"
+						"url": {
+							"raw": "{{URL}}/genero",
+							"host": [
+								"{{URL}}"
+							],
+							"path": [
+								"genero"
+							]
+						}
 					},
 					"response": []
 				},
@@ -216,7 +294,16 @@
 								}
 							}
 						},
-						"url": "{{URL}}/genero/add"
+						"url": {
+							"raw": "{{URL}}/genero/add",
+							"host": [
+								"{{URL}}"
+							],
+							"path": [
+								"genero",
+								"add"
+							]
+						}
 					},
 					"response": []
 				},
@@ -225,7 +312,16 @@
 					"request": {
 						"method": "GET",
 						"header": [],
-						"url": "{{URL}}/genero/0017a821-1251-11ef-a04e-02500869912c"
+						"url": {
+							"raw": "{{URL}}/genero/0017a821-1251-11ef-a04e-02500869912c",
+							"host": [
+								"{{URL}}"
+							],
+							"path": [
+								"genero",
+								"0017a821-1251-11ef-a04e-02500869912c"
+							]
+						}
 					},
 					"response": []
 				},
@@ -276,7 +372,16 @@
 								}
 							}
 						},
-						"url": "{{URL}}/genero/update"
+						"url": {
+							"raw": "{{URL}}/genero/update",
+							"host": [
+								"{{URL}}"
+							],
+							"path": [
+								"genero",
+								"update"
+							]
+						}
 					},
 					"response": []
 				}
@@ -290,7 +395,15 @@
 					"request": {
 						"method": "GET",
 						"header": [],
-						"url": "{{URL}}/midia"
+						"url": {
+							"raw": "{{URL}}/midia",
+							"host": [
+								"{{URL}}"
+							],
+							"path": [
+								"midia"
+							]
+						}
 					},
 					"response": []
 				},
@@ -308,7 +421,16 @@
 								}
 							}
 						},
-						"url": "{{URL}}/midia/add"
+						"url": {
+							"raw": "{{URL}}/midia/add",
+							"host": [
+								"{{URL}}"
+							],
+							"path": [
+								"midia",
+								"add"
+							]
+						}
 					},
 					"response": []
 				},
@@ -317,7 +439,16 @@
 					"request": {
 						"method": "GET",
 						"header": [],
-						"url": "{{URL}}/midia/0017a821-1251-11ef-a04e-02500869912c"
+						"url": {
+							"raw": "{{URL}}/midia/0017a821-1251-11ef-a04e-02500869912c",
+							"host": [
+								"{{URL}}"
+							],
+							"path": [
+								"midia",
+								"0017a821-1251-11ef-a04e-02500869912c"
+							]
+						}
 					},
 					"response": []
 				},
@@ -368,7 +499,16 @@
 								}
 							}
 						},
-						"url": "{{URL}}/midia/update"
+						"url": {
+							"raw": "{{URL}}/midia/update",
+							"host": [
+								"{{URL}}"
+							],
+							"path": [
+								"midia",
+								"update"
+							]
+						}
 					},
 					"response": []
 				}
@@ -382,7 +522,15 @@
 					"request": {
 						"method": "GET",
 						"header": [],
-						"url": "{{URL}}/participante"
+						"url": {
+							"raw": "{{URL}}/participante",
+							"host": [
+								"{{URL}}"
+							],
+							"path": [
+								"participante"
+							]
+						}
 					},
 					"response": []
 				},
@@ -400,7 +548,16 @@
 								}
 							}
 						},
-						"url": "{{URL}}/participante/add"
+						"url": {
+							"raw": "{{URL}}/participante/add",
+							"host": [
+								"{{URL}}"
+							],
+							"path": [
+								"participante",
+								"add"
+							]
+						}
 					},
 					"response": []
 				},
@@ -409,7 +566,16 @@
 					"request": {
 						"method": "GET",
 						"header": [],
-						"url": "{{URL}}/participante/6783edd5-1c7d-11ef-99b0-02500869912c"
+						"url": {
+							"raw": "{{URL}}/participante/6783edd5-1c7d-11ef-99b0-02500869912c",
+							"host": [
+								"{{URL}}"
+							],
+							"path": [
+								"participante",
+								"6783edd5-1c7d-11ef-99b0-02500869912c"
+							]
+						}
 					},
 					"response": []
 				},
@@ -460,7 +626,16 @@
 								}
 							}
 						},
-						"url": "{{URL}}/participante/update"
+						"url": {
+							"raw": "{{URL}}/participante/update",
+							"host": [
+								"{{URL}}"
+							],
+							"path": [
+								"participante",
+								"update"
+							]
+						}
 					},
 					"response": []
 				}
@@ -474,7 +649,15 @@
 					"request": {
 						"method": "GET",
 						"header": [],
-						"url": "{{URL}}/tipomidia"
+						"url": {
+							"raw": "{{URL}}/tipomidia",
+							"host": [
+								"{{URL}}"
+							],
+							"path": [
+								"tipomidia"
+							]
+						}
 					},
 					"response": []
 				},
@@ -492,7 +675,16 @@
 								}
 							}
 						},
-						"url": "{{URL}}/tipomidia/add"
+						"url": {
+							"raw": "{{URL}}/tipomidia/add",
+							"host": [
+								"{{URL}}"
+							],
+							"path": [
+								"tipomidia",
+								"add"
+							]
+						}
 					},
 					"response": []
 				},
@@ -501,7 +693,16 @@
 					"request": {
 						"method": "GET",
 						"header": [],
-						"url": "{{URL}}/tipomidia/cd6e5dcb-1c7d-11ef-99b0-02500869912c"
+						"url": {
+							"raw": "{{URL}}/tipomidia/cd6e5dcb-1c7d-11ef-99b0-02500869912c",
+							"host": [
+								"{{URL}}"
+							],
+							"path": [
+								"tipomidia",
+								"cd6e5dcb-1c7d-11ef-99b0-02500869912c"
+							]
+						}
 					},
 					"response": []
 				},
@@ -552,7 +753,152 @@
 								}
 							}
 						},
-						"url": "{{URL}}/tipomidia/update"
+						"url": {
+							"raw": "{{URL}}/tipomidia/update",
+							"host": [
+								"{{URL}}"
+							],
+							"path": [
+								"tipomidia",
+								"update"
+							]
+						}
+					},
+					"response": []
+				}
+			]
+		},
+		{
+			"name": "CATALOGO",
+			"item": [
+				{
+					"name": "ADD CATALOGO",
+					"request": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n  \"id\": \"string\",\r\n  \"iD_GENERO\": \"0017a821-1251-11ef-a04e-02500869912c\",\r\n  \"iD_MIDIA\": \"0017c0b8-1251-11ef-a04e-02500869912c\",\r\n  \"iD_CATEGORIA\": \"0017bd53-1251-11ef-a04e-02500869912c\",\r\n  \"iD_TIPO_MIDIA\": \"0017c810-1251-11ef-a04e-02500869912c\",\r\n  \"iD_CLASSIFICACAO\": \"0017b86b-1251-11ef-a04e-02500869912c\",\r\n  \"iD_PARTICIPANTE\": \"0017c460-1251-11ef-a04e-02500869912c\",\r\n  \"preco\": 1000,\r\n  \"caminho\": \"https://youtube.com\"\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "{{URL_CATALOGO}}/catalogos/add",
+							"host": [
+								"{{URL_CATALOGO}}"
+							],
+							"path": [
+								"catalogos",
+								"add"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "UPDATE CATALOGO",
+					"request": {
+						"method": "PUT",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n  \"id\": \"770c5e93-2455-11ef-959b-005056ac9f53\",\r\n  \"iD_GENERO\": \"0017a821-1251-11ef-a04e-02500869912c\",\r\n  \"iD_MIDIA\": \"0017c0b8-1251-11ef-a04e-02500869912c\",\r\n  \"iD_CATEGORIA\": \"0017bd53-1251-11ef-a04e-02500869912c\",\r\n  \"iD_TIPO_MIDIA\": \"0017c810-1251-11ef-a04e-02500869912c\",\r\n  \"iD_CLASSIFICACAO\": \"0017b86b-1251-11ef-a04e-02500869912c\",\r\n  \"iD_PARTICIPANTE\": \"0017c460-1251-11ef-a04e-02500869912c\",\r\n  \"preco\": 150,\r\n  \"caminho\": \"https://youtube.com\"\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "{{URL_CATALOGO}}/catalogos/update",
+							"host": [
+								"{{URL_CATALOGO}}"
+							],
+							"path": [
+								"catalogos",
+								"update"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "GET BY ID",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "{{URL_CATALOGO}}/catalogos/id?idGuid=770c5e93-2455-11ef-959b-005056ac9f53",
+							"host": [
+								"{{URL_CATALOGO}}"
+							],
+							"path": [
+								"catalogos",
+								"id"
+							],
+							"query": [
+								{
+									"key": "idGuid",
+									"value": "770c5e93-2455-11ef-959b-005056ac9f53"
+								}
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "GET ALL",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "{{URL_CATALOGO}}/catalogos",
+							"host": [
+								"{{URL_CATALOGO}}"
+							],
+							"path": [
+								"catalogos"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Buscar XML Número",
+					"request": {
+						"method": "POST",
+						"header": [
+							{
+								"key": "Content-Type",
+								"value": "text/xml",
+								"type": "text"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "<?xml version=\"1.0\" encoding=\"utf-8\"?>\r\n<soap:Envelope xmlns:soap=\"http://schemas.xmlsoap.org/soap/envelope/\">\r\n  <soap:Body>\r\n    <NumberToWords xmlns=\"http://www.dataaccess.com/webservicesserver/\">\r\n      <ubiNum>unsignedLong</ubiNum>\r\n    </NumberToWords>\r\n  </soap:Body>\r\n</soap:Envelope>",
+							"options": {
+								"raw": {
+									"language": "xml"
+								}
+							}
+						},
+						"url": {
+							"raw": "https://www.dataaccess.com/webservicesserver/numberconversion.wso",
+							"protocol": "https",
+							"host": [
+								"www",
+								"dataaccess",
+								"com"
+							],
+							"path": [
+								"webservicesserver",
+								"numberconversion.wso"
+							]
+						}
 					},
 					"response": []
 				}
@@ -586,6 +932,10 @@
 			"key": "URL",
 			"value": "https://localhost:7283",
 			"type": "string"
+		},
+		{
+			"key": "URL_CATALOGO",
+			"value": "https://localhost:7281"
 		}
 	]
 }
