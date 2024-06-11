@@ -18,32 +18,62 @@ public class TXTImportar
     {
         Directory.CreateDirectory(FilePath.PATH);
 
-        for (int i = 0; i < 20; i++)
+
+        int count = 0;
+        int count2 = 0;
+        while (count2 != Dados.Length)
         {
-            Genero += Dados[i];
+            Genero = "";
+            for (int i = count; i < count2 + 20; i++)
+            {
+                Genero += Dados[i];
+                count += 1;
+            }
+            count2 += 20;
+            
+            Categoria = "";
+            for (int i = count; i < count2 + 50; i++)
+            {
+                Categoria += Dados[i];
+                count += 1;
+            }
+            count2 += 50;
+
+            Midia = "";
+            for (int i = count; i < count2 + 50; i++)
+            {
+                Midia += Dados[i];
+                count += 1;
+            }
+            count2 += 50;
+
+            TipoMidia = "";
+            for (int i = count; i < count2 + 50; i++)
+            {
+                TipoMidia += Dados[i];
+                count += 1;
+
+            }
+            count2 += 50;
+
+            Classificacao = "";
+            for (int i = count; i < count2 + 3; i++)
+            {
+                Classificacao += Dados[i];
+                count += 1;
+            }
+            count2 += 3;
+
+            Participante = "";
+            for (int i = count; i < count2+100; i++)
+            {
+                Participante += Dados[i];
+                count += 1;
+            }
+            count2 += 100;
+            await TxtRepository.InserirAsync(new DataModel(Genero, Categoria, Midia, TipoMidia, Classificacao, Participante));
+
         }
 
-        for (int i = 20; i < 70; i++)
-            Categoria += Dados[i];
-        {
-        }
-        for (int i = 70; i < 120; i++)
-        {
-            Midia += Dados[i];
-        }
-        for (int i = 120; i < 170; i++)
-        {
-            TipoMidia += Dados[i];
-        }
-        for (int i = 170; i < 173; i++)
-        {
-            Classificacao += Dados[i];
-        }
-        for (int i = 173; i < 273; i++)
-        {
-            Participante += Dados[i];
-        }
-
-        await TxtRepository.InserirAsync(new DataModel(Genero, Categoria, Midia, TipoMidia, Classificacao, Participante));
     }
 }
