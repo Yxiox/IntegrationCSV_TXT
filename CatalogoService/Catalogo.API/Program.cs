@@ -1,5 +1,6 @@
 using Catalogo.API.Entities;
 using Integration.Shared.Config;
+using QuickKit.AspNetCore.Configuration;
 
 var builder = WebApplication.CreateBuilder(args);
 
@@ -18,7 +19,6 @@ builder.Services.Scan(c =>
 );
 
 builder.Services.AddIntegration();
-
 var app = builder.Build();
 
 if (app.Environment.IsDevelopment())

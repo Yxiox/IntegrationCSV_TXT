@@ -32,7 +32,7 @@ public class CsvRepository : Repository
 
             using (IDbConnection conn = Connect())
             {
-                await conn.ExecuteAsync(command);
+                await conn.ExecuteAsync(command); 
             }
         }
         catch (Exception ex)
