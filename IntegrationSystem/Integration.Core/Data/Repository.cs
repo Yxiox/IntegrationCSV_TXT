@@ -13,4 +13,6 @@ public class Repository
     {
         return new MySqlConnection(CONNECTION_STRING);
     }
+
+    protected static string GetDeleteNoWhereStatement() => "DELETE FROM monolito";
 }
