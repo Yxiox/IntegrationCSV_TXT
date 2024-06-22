@@ -91,7 +91,7 @@ WHERE ID = @idParam
     {
         try
         {
-            var sql = @"SELECT * FROM tipo_midia";
+            var sql = @"SELECT * FROM tipo_midia WHERE DATAINATIVACAO IS NULL";
             using (_connection = Create())
             {
                 CommandDefinition command = new(sql, cancellationToken: cancellationToken);

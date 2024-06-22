@@ -91,7 +91,7 @@ WHERE ID = @idParam
     {
         try
         {
-            var sql = @"SELECT * FROM genero";
+            var sql = @"SELECT * FROM genero WHERE DATAINATIVACAO IS NULL";
             using (_connection = Create())
             {
                 CommandDefinition command = new(sql, cancellationToken: cancellationToken);
