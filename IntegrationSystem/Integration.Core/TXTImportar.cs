@@ -5,45 +5,59 @@ namespace Integration.Core;
 
 public class TXTImportar
 {
-    static string Dados = File.ReadAllText(@$"{FilePath.PATH}\\testeTXT.txt");
-
-    static string Genero;
-    static string Categoria;
-    static string Midia;
-    static string TipoMidia;
-    static string Classificacao;
-    static string Participante;
-
     public static async Task Readtxt()
     {
         Directory.CreateDirectory(FilePath.PATH);
+        await TxtRepository.Delete();
 
-        for (int i = 0; i < 20; i++)
-        {
-            Genero += Dados[i];
-        }
+        string genero = "";
+        string categoria = "";
+        string midia = "";
+        string tipoMidia = "";
+        string classificacao = "";
+        string participante = "";
 
-        for (int i = 20; i < 70; i++)
-            Categoria += Dados[i];
+        using (StreamReader sr = File.OpenText(@$"{FilePath.PATH}\\testeTXT.txt"))
         {
-        }
-        for (int i = 70; i < 120; i++)
-        {
-            Midia += Dados[i];
-        }
-        for (int i = 120; i < 170; i++)
-        {
-            TipoMidia += Dados[i];
-        }
-        for (int i = 170; i < 173; i++)
-        {
-            Classificacao += Dados[i];
-        }
-        for (int i = 173; i < 273; i++)
-        {
-            Participante += Dados[i];
-        }
+            string s = string.Empty;
+            while ((s = sr.ReadLine()) != null)
+            {
+                //await Console.Out.WriteLineAsync(s);
+                for (int i = 0; i < 20; i++)
+                {
+                    genero += s[i];
+                }
 
-        await TxtRepository.InserirAsync(new DataModel(Genero, Categoria, Midia, TipoMidia, Classificacao, Participante));
+                for (int i = 20; i < 70; i++)
+                {
+                    categoria += s[i];
+                }
+                for (int i = 70; i < 120; i++)
+                {
+                    midia += s[i];
+                }
+                for (int i = 120; i < 170; i++)
+                {
+                    tipoMidia += s[i];
+                }
+                for (int i = 170; i < 173; i++)
+                {
+                    classificacao += s[i];
+                }
+                for (int i = 173; i < 273; i++)
+                {
+                    participante += s[i];
+                }
+
+                await TxtRepository.InserirAsync(new DataModel(genero, categoria, midia, tipoMidia, classificacao, participante));
+
+                genero = "";
+                categoria = "";
+                midia = "";
+                tipoMidia = "";
+                classificacao = "";
+                participante = "";
+            }
+        }
     }
 }

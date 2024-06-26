@@ -11,7 +11,7 @@ public class Repository
 
     protected static IDbConnection Connect()
     {
-        return new MySqlConnection(CONNECTION_STRING);
+        return new MySqlConnection(CONNECTION_STRING_V);
     }
 
     protected static string GetDeleteNoWhereStatement() => "DELETE FROM monolito";

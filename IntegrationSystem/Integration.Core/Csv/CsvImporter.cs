@@ -9,7 +9,7 @@ public class CsvImporter
 {
     public static async Task Import()
     {
-        using (TextFieldParser parser = new TextFieldParser($@"{FilePath.PATH}/testeCSV.csv"))
+        using (TextFieldParser parser = new TextFieldParser($@"{FilePath.PATH}/testeCSV.xlsx"))
         {
             parser.TextFieldType = FieldType.Delimited;
             parser.SetDelimiters(",");
