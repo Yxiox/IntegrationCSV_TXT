@@ -9,28 +9,39 @@ public class CsvImporter
 {
     public static async Task Import()
     {
-        using (TextFieldParser parser = new TextFieldParser($@"{FilePath.PATH}/testeCSV.xlsx"))
+        using (TextFieldParser parser = new TextFieldParser($@"{FilePath.PATH}/ImporterCsv.csv"))
         {
             parser.TextFieldType = FieldType.Delimited;
-            parser.SetDelimiters(",");
-            Console.WriteLine($"\n-----HEADERS-----\n" + $"{parser.ReadLine()}");
+            parser.SetDelimiters(";");
+            string[] headers = parser.ReadFields();
 
-            while (!parser.EndOfData)
+            Console.WriteLine($"\n-----HEADERS-----\n" + string.Join(",", headers));
+
+
+            try
             {
-                string[] fields = parser.ReadFields();
-                DataModel model =
-                    new(fields[0], fields[1], fields[2], fields[3], fields[4], fields[5]);
-                try
+                while (!parser.EndOfData)
                 {
+                    string[] fields = parser.ReadFields();
+
+                    DataModel model = new DataModel
+                    {
+                        GENERO = fields[0],
+                        CATEGORIA = fields[1],
+                        MIDIA = fields[2],
+                        TIPO_MIDIA = fields[3],
+                        CLASSIFICACAO = fields[4],
+                        PARTICIPANTE = fields[5]
+                    };
                     await CsvRepository.InserirAsync(model);
                 }
-                catch (Exception)
-                {
-                    await Console.Out.WriteLineAsync(
-                        "Erro ao inserir, favor conferir arquivo de importação!"
-                    );
-                    throw;
-                }
+            }
+            catch (Exception)
+            {
+                await Console.Out.WriteLineAsync(
+                    "Erro ao inserir, favor conferir arquivo de importação!"
+                );
+                throw;
             }
         }
     }

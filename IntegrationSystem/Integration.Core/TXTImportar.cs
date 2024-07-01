@@ -17,7 +17,7 @@ public class TXTImportar
         string classificacao = "";
         string participante = "";
 
-        using (StreamReader sr = File.OpenText(@$"{FilePath.PATH}\\testeTXT.txt"))
+        using (StreamReader sr = File.OpenText(@$"{FilePath.PATH}\\ImporterTxt.txt"))
         {
             string s = string.Empty;
             while ((s = sr.ReadLine()) != null)
