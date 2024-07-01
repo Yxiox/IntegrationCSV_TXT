@@ -112,26 +112,39 @@ public class CatalogoService : ICatalogoService
 
     private async Task<CatalogoDto> ToDTOAsync(CATALOGO catalogo, CancellationToken cancellationToken)
     {
-        var genero = await _httpClient.FromJsonAsync<GENERO>(IntegrationAPI.GENERO, catalogo.ID_GENERO, "Gênero não encontrado", cancellationToken);
-        var categoria = await _httpClient.FromJsonAsync<CATEGORIA>(IntegrationAPI.CATEGORIA, catalogo.ID_CATEGORIA, "Categoria não encontrado", cancellationToken);
-        var classificacao = await _httpClient.FromJsonAsync<CLASSIFICACAO>(IntegrationAPI.CLASSIFICACAO, catalogo.ID_CLASSIFICACAO, "Classificação não encontrado", cancellationToken);
-        var midia = await _httpClient.FromJsonAsync<MIDIA>(IntegrationAPI.MIDIA, catalogo.ID_MIDIA, "Midia não encontrado", cancellationToken);
-        var participante = await _httpClient.FromJsonAsync<PARTICIPANTES>(IntegrationAPI.PARTICIPANTES, catalogo.ID_PARTICIPANTE, "Participante não encontrado", cancellationToken);
-        var tipoMidia = await _httpClient.FromJsonAsync<TIPO_MIDIA>(IntegrationAPI.TIPO_MIDIA, catalogo.ID_TIPO_MIDIA, "Tipo da Midia não encontrado", cancellationToken);
-
-        VerifyNull(genero, categoria, classificacao, midia, participante, tipoMidia);
-
-        catalogo.PrecoExtenso = await GetNumberAsFullTextAsync(catalogo.PRECO);
-
-        return new CatalogoDto()
+        try
         {
-            Genero = genero!,
-            Categoria = categoria!,
-            Classificacao = classificacao!,
-            Midia = midia!,
-            Participantes = participante!,
-            TipoMidia = tipoMidia!,
-            Catalogo = catalogo,
-        };
+            var genero = await _httpClient.FromJsonAsync<GENERO>(IntegrationAPI.GENERO, catalogo.ID_GENERO, $"Gênero não encontrado com código {catalogo.ID_GENERO}", cancellationToken);
+
+            var categoria = await _httpClient.FromJsonAsync<CATEGORIA>(IntegrationAPI.CATEGORIA, catalogo.ID_CATEGORIA, $"Categoria não encontrado com código {catalogo.ID_CATEGORIA}", cancellationToken);
+
+            var classificacao = await _httpClient.FromJsonAsync<CLASSIFICACAO>(IntegrationAPI.CLASSIFICACAO, catalogo.ID_CLASSIFICACAO, $"Classificação não encontrado com código {catalogo.ID_CLASSIFICACAO}", cancellationToken);
+
+            var midia = await _httpClient.FromJsonAsync<MIDIA>(IntegrationAPI.MIDIA, catalogo.ID_MIDIA, $"Midia não encontrado com código {catalogo.ID_MIDIA}", cancellationToken);
+
+            var participante = await _httpClient.FromJsonAsync<PARTICIPANTES>(IntegrationAPI.PARTICIPANTES, catalogo.ID_PARTICIPANTE, $"Participante não encontrado com código {catalogo.ID_PARTICIPANTE}", cancellationToken);
+
+            var tipoMidia = await _httpClient.FromJsonAsync<TIPO_MIDIA>(IntegrationAPI.TIPO_MIDIA, catalogo.ID_TIPO_MIDIA, $"Tipo da Midia não encontrado com código {catalogo.ID_TIPO_MIDIA}", cancellationToken);
+
+            VerifyNull(genero, categoria, classificacao, midia, participante, tipoMidia);
+
+            catalogo.PrecoExtenso = await GetNumberAsFullTextAsync(catalogo.PRECO);
+
+            return new CatalogoDto()
+            {
+                Genero = genero!,
+                Categoria = categoria!,
+                Classificacao = classificacao!,
+                Midia = midia!,
+                Participantes = participante!,
+                TipoMidia = tipoMidia!,
+                Catalogo = catalogo,
+            };
+        }
+        catch (Exception)
+        {
+            return null;
+
+        }
     }
 }
