@@ -1,27 +1,25 @@
-﻿using Integration.Core;
-using Integration.Core.Data;
-using Integration.Core.Model;
-using Integration.Core.Shared;
+﻿using Core.Data;
+using Core.Model;
+using Core.Shared;
 using MySql.Data.MySqlClient;
 using System.Text;
 
-namespace Integration.Core.Csv
+namespace Core.Csv
 {
-    public class CsvExporter : Repository
+    public class CsvExporter
     {
         public static void ExportToCsv()
         {
-            string filePath = @$"{FilePath.PATH}/{Exporter.FILENAME_CSV}";
+            string filePath = @$"{Path.GetTempPath()}/{Exporter.FILENAME_CSV}";
             try
             {
-                Directory.CreateDirectory(FilePath.PATH);
                 // Consulta SQL para recuperar todos os registros da tabela "monolito"
                 string query = "SELECT * FROM monolito";
 
                 // Lista para armazenar os registros
                 List<MonolitoItem> monolitoItens = new List<MonolitoItem>();
 
-                using (MySqlConnection connection = GetConnection())
+                using (MySqlConnection connection = new MySqlConnection(Repository.CONNECTION_STRING_V))
                 {
                     connection.Open();
 

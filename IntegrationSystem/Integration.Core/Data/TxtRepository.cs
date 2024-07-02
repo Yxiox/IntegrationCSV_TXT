@@ -29,6 +29,14 @@ internal class TxtRepository : Repository
         }
     }
 
+    public static async Task Delete()
+    {
+        using (var conn = Connect())
+        {
+            await conn.ExecuteAsync(GetDeleteNoWhereStatement());
+        }
+    }
+
     public static async Task InserirAsync(DataModel model)
     {
         try
