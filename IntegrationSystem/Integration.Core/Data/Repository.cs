@@ -21,7 +21,7 @@ public class Repository
 
     private static string GetConnectionString()
     {
-        return CONNECTION_STRING_V;
+        return CONNECTION_STRING;
     }
 
     protected static string GetDeleteNoWhereStatement() => "DELETE FROM monolito";

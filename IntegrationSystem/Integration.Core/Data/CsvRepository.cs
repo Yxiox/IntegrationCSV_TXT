@@ -2,12 +2,22 @@
 using Integration.Core.Models;
 using QuickKit.Cmd;
 using QuickKit.Cmd.Enums;
+using QuickKit.Shared.Extensions;
 using System.Data;
 
 namespace Integration.Core.Data;
 
 public class CsvRepository : Repository
 {
+    public static async Task DeleteSemWhere()
+    {
+        using (IDbConnection conn = Connect())
+        {
+            await conn.ExecuteAsync(GetDeleteNoWhereStatement());
+
+        }
+    }
+
     public static async Task InserirAsync(DataModel model)
     {
         try
@@ -24,7 +34,7 @@ public class CsvRepository : Repository
                     @prm_categoria = model.CATEGORIA,
                     @prm_midia = model.MIDIA,
                     @prm_tipo_midia = model.TIPO_MIDIA,
-                    @prm_classificacao = model.CLASSIFICACAO,
+                    @prm_classificacao = model.CLASSIFICACAO.ToInt(),
                     @prm_participante = model.PARTICIPANTE
                 },
                 commandType: CommandType.Text
@@ -32,8 +42,8 @@ public class CsvRepository : Repository
 
             using (IDbConnection conn = Connect())
             {
-                await conn.ExecuteAsync(GetDeleteNoWhereStatement());
-                await conn.ExecuteAsync(command); 
+
+                await conn.ExecuteAsync(command);
             }
         }
         catch (Exception ex)

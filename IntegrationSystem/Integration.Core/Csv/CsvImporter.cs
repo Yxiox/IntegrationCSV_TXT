@@ -11,6 +11,7 @@ public class CsvImporter
     {
         using (TextFieldParser parser = new TextFieldParser($@"{FilePath.PATH}/ImporterCsv.csv"))
         {
+            await CsvRepository.DeleteSemWhere();
             parser.TextFieldType = FieldType.Delimited;
             parser.SetDelimiters(";");
             string[] headers = parser.ReadFields();
